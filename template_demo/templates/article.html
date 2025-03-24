@@ -1,0 +1,33 @@
+<h1>Hello {{ username }}</h1>
+    <div>书名：{{ book.name}} 作者：{{ book.author}} </div>
+    <div>=============================================</div>
+    {% for b in books %}
+        {% if b.name == '三国' %}
+    <div>书名：{{ b.name}} 作者：{{ b.author}} ，我比较喜欢</div>
+       {% elif b.name == '西游记' %}
+    <div>书名：{{ b.name}} 作者：{{ b.author}} ，我一般喜欢</div>
+        {% else %}
+    <div>书名：{{ b.name}} 作者：{{ b.author}} ，我不喜欢</div>
+        {% endif %}
+    {% endfor %}
+    <div>=============================================</div>
+    <div>person：{{ person.realname}}</div>
+    <div>########################################</div>
+    {% for k,v in book.items %}
+    <div>{{ forloop.counter0 }}、{{ k }} : {{ v }}</div>
+    {% endfor %}
+
+    {% for k,v in book.items reversed %}
+    <div>{{ forloop.counter }}、{{ k }} : {{ v }}</div>
+    {% empty %}
+    <div>These is no thing!</div>
+    {% endfor %}
+    <div>########################################</div>
+    {% with bk=books.1 %}
+    <div>书名：{{ bk.name}} 作者：{{ bk.author}}  oo</div>
+    {% endwith %}
+    <div>********************************************#</div>
+    <div><a href="{% url 'home:book_detail_path' book_id=3 %}">My book1</a></div>
+    <div><a href="{% url 'home:book_detail_path' 3 %}">My book2</a></div>
+    <div><a href="{% url 'home:book_detail' %}?book_id=3">My book3</a></div>
+    <div><a href="/media/aaa.jpg">图片测试</a></div>

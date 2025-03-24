@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"></link>
+  <script src="{% static 'js/index.js' %}"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>{% block title %}{% endblock%}--迈维思科技</title>
+  {% block head %}{% endblock %}
+
+</head>
+<body class="container relative mx-auto px-8 pt-4">
+    <head>
+        <ul>
+            <li><a href="/">首页</a></li>
+            <li class="btn"><a href="/book" >图书列表</a></li>
+        </ul>
+    </head>
+    
+    {% block body %}
+        <div class="btn">这里要怎么显示呢？我是父模板</div>
+    {% endblock %}
+
+    <footer>公安备案号11010502030143 京ICP备19004658号 京网文〔2020〕1039-165号 经营性网站备案信息</footer>
+</body>
+</html>

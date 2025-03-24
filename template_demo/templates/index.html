@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}首页{% endblock%}
+
+{% block head %}
+    <style>
+        body{
+            background-color: pink;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    {{ block.super }}
+    {% include "article.html" %}
+    <div>+++++++++++++++++</div>
+    <div>这里也进来了</div>
+{% endblock %}
