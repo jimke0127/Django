@@ -6,7 +6,8 @@ from django.core.mail import send_mail
 from .models import CaptchaModel
 from django.views.decorators.http import require_http_methods
 from .forms import RegisterForm,LoginForm
-from django.contrib.auth import get_user_model,login
+from django.contrib.auth import get_user_model,login,logout
+from django.contrib.auth.models import User
 
 User = get_user_model()
 
@@ -27,6 +28,8 @@ def zllogin(request):
                 #登录
                 login(request,user)
 
+                # User.is_authenticated
+
                 if not remember:
                     request.session.set_expiry(0)
             
@@ -37,6 +40,12 @@ def zllogin(request):
             return render(request,'login.html', context={"form": form})
 
             #return render(request,'register',context={"form":form})
+
+
+def zllogout(request):
+    
+    logout(request)
+    return redirect('/myblog')
 
 
 @require_http_methods(["GET","POST"])
